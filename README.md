@@ -1,2 +1,2 @@
 "# Negev-wizard" 
-blah blah first try
+The first group project!
