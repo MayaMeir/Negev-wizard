@@ -1,0 +1,38 @@
+.jumbotron {
+    width: 700px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    width: 730px;
+    
+}
+
+form {
+    width: 30%;
+    display: inline;
+    background-color: rgba(127, 255, 212, 0);
+}
+
+
+label {
+    width: 250px;
+}
+
+#butdiv {
+display: flex;
+justify-content: center;
+
+}
+
+button {
+    margin: 40px;
+    display: block;
+    margin:auto;
+}
+
+#stam {
+    width: 730px;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
