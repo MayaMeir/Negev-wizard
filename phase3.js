@@ -5,8 +5,8 @@ if (userString){
     UserObj = JSON.parse(userString);
 }
 else{
-    alert("YOU DONT BELONG HERE!!!");
-    // location.href = 'doom.com';
+    alert("You have to start from the beginning..");
+    // location.href = 'https://www.intowindows.com/wp-content/uploads/2018/08/You-dont-currently-have-permissions-to-access-this-folder-in-Windows-10_thumb.png';
 
 }
 
@@ -61,7 +61,7 @@ function next() {
         UserObj.hobbies = checked;
         let objString = JSON.stringify(UserObj); //now its string
         localStorage.setItem('User', objString);
-        // location.href = 'phase4.html';
+        location.href = 'phase4.html';
     }
 
 }
