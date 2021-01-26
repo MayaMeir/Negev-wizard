@@ -1,35 +1,51 @@
-const   myName = localStorage.getItem("name"), 
-        email = localStorage.getItem("email"), 
-        birthdayDate = localStorage.getItem("birthdayDate"),
-        city = localStorage.getItem("city"),
-        street = localStorage.getItem("street"),
-        streetNumber = localStorage.getItem("streetNumber"),
-        imageUrl =  localStorage.getItem("imageUrl"),
-        hobbies =  localStorage.getItem("hobbies");
+const displayName = document.querySelector("#userName"),
+    displayEmail = document.querySelector("#userEmail"),
+    displayBirthday = document.querySelector("#userBirthday"),
+    displayAddress = document.querySelector("#userAddress"),
+    displayHobbies = document.querySelector("#userHobbies"),
+    displayImage = document.querySelector("#userImg");
 
-const   displayName = document.querySelector("#userName"),
-        displayEmail = document.querySelector("#userEmail"),
-        displayBirthday = document.querySelector("#userBirthday"),
-        displayAddress = document.querySelector("#userAddress"),
-        displayHobbies = document.querySelector("#userHobbies");
+let userString = localStorage.getItem('User'),
+    UserObj = {},
+    prevBtn = document.querySelector("#prev");
 
-function updateDetails(){
-        if(myName !== null){
-                displayName.innerHTML += " "+myName;
-        }
-        if(email !== null){
-                displayEmail.innerHTML += " "+email;
-        }
-        if(birthdayDate !== null){
-                displayBirthday.innerHTML += " "+birthdayDate;
-        }
-        if(city !== null && street !== null && streetNumber !== null){
-                displayAddress.innerHTML += " "+street+", "+streetNumber+", "+city;
 
-        }
-        if(hobbies !== null){
-                displayHobbies.innerHTML += "Hobbies: "+hobbies;
-        }
+function prev() {
+    location.href = 'phase3.html';
+
 }
-        
+
+prevBtn.addEventListener("click", function () {
+    prev();
+});
+
+
+
+function updateDetails() {
+    if (userString) {
+        UserObj = JSON.parse(userString);
+        if (UserObj.name !== null && UserObj.name !== undefined) {
+            displayName.innerHTML += " " + UserObj.Name;
+        }
+        if (UserObj.email !== null && UserObj.email !== undefined) {
+            displayEmail.innerHTML += " " + UserObj.email;
+        }
+        if (UserObj.birthdayDate !== null && UserObj.birthdayDate !== undefined) {
+            displayBirthday.innerHTML += " " + UserObj.birthdayDate;
+        }
+        if ((UserObj.city !== null && UserObj.city !== undefined) &&
+            (UserObj.street !== null && UserObj.street !==undefined) &&
+             (UserObj.streetNumber !== null && UserObj.streetNumber !== undefined)) {
+            displayAddress.innerHTML += " " + UserObj.street + ", " + UserObj.streetNumber + ", " + UserObj.city;
+
+        }
+        if (UserObj.hobbies !== null && UserObj.hobbies !== undefined) {
+            displayHobbies.innerHTML += "Hobbies: " + UserObj.hobbies;
+        }
+        if (UserObj.imageUrl !== null && UserObj.imageUrl !== undefined) {
+            displayImage.src = UserObj.imageUrl;
+        }
+    }
+}
+
 updateDetails();
